@@ -4,121 +4,134 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Beautiful Economics</title>
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------- ROOT COLORS ---------- */
+/* ------------ ROOT COLORS ------------ */
 :root {
-  --bg: #faf9f7;
-  --text: #111;
-  --muted: #757575;
-  --accent: #c8a66a; /* soft gold */
-  --card-bg: #ffffff;
-  --radius: 14px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.06);
-  --transition: all 0.6s cubic-bezier(.2,.8,.3,1);
+  --bg: #0f0f11;            /* deep luxury black */
+  --card: #17171a;          /* soft dark gray */
+  --text: #e8e8e8;          /* elegant off-white */
+  --muted: #9a9a9a;
+  --accent: #c8a66a;        /* soft gold */
+  --radius: 16px;
+  --shadow: 0 10px 40px rgba(0,0,0,0.45);
+  --transition: all 0.65s cubic-bezier(.2,.8,.3,1);
 }
 
-/* ---------- BASE ---------- */
+/* ------------ BASE ------------ */
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   background: var(--bg);
-  font-family: "Inter", sans-serif;
   color: var(--text);
-  line-height: 1.6;
+  font-family: "Inter", sans-serif;
   padding: 40px 20px;
   display: flex;
   justify-content: center;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  width: 100%;
   max-width: 1100px;
+  width: 100%;
 }
 
-/* ---------- HEADER ---------- */
+/* ------------ HEADER ------------ */
+
 header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 60px;
 }
 
 .brand {
   font-family: "Playfair Display", serif;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  color: var(--text);
 }
 
-/* ---------- HERO ---------- */
+/* ------------ HERO ------------ */
+
 .hero {
-  background: var(--card-bg);
-  padding: 70px 40px;
+  background: var(--card);
+  padding: 80px 45px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   text-align: center;
   margin-bottom: 60px;
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .hero h1 {
   font-family: "Playfair Display", serif;
-  font-size: 46px;
-  letter-spacing: -0.7px;
+  font-size: 52px;
+  font-weight: 600;
   margin-bottom: 14px;
+  background: linear-gradient(90deg, #ffffff, #c8a66a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
   max-width: 680px;
   margin: 0 auto;
-  font-size: 18px;
   color: var(--muted);
-  margin-bottom: 30px;
+  font-size: 18px;
+  margin-bottom: 26px;
 }
 
 .btn {
   text-decoration: none;
-  display: inline-block;
-  padding: 12px 26px;
-  margin: 6px;
+  padding: 13px 28px;
   border-radius: 10px;
   font-weight: 600;
+  display: inline-block;
+  margin: 6px;
   transition: var(--transition);
 }
 
-.btn-dark {
-  background: var(--text);
-  color: white;
+.btn-gold {
+  background: var(--accent);
+  color: #000;
 }
 
-.btn-dark:hover {
-  transform: translateY(-4px);
+.btn-gold:hover {
+  transform: translateY(-6px);
 }
 
 .btn-outline {
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255,255,255,0.2);
   color: var(--text);
 }
 
 .btn-outline:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
 }
 
-/* ---------- ABOUT ---------- */
+/* ------------ SECTIONS ------------ */
+
 .section {
-  background: var(--card-bg);
-  padding: 45px 35px;
+  background: var(--card);
+  padding: 45px 40px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin-bottom: 60px;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .section h2 {
   font-family: "Playfair Display", serif;
-  font-size: 32px;
-  margin-bottom: 14px;
+  font-size: 34px;
+  margin-bottom: 18px;
+  color: #f5f5f5;
 }
 
 .section p {
@@ -126,41 +139,45 @@ header {
   font-size: 17px;
 }
 
-/* ---------- INSIGHTS ---------- */
+/* ------------ INSIGHTS GRID ------------ */
+
 .insights {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
   gap: 22px;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .card {
-  background: var(--card-bg);
+  background: #1c1c1f;
   padding: 22px;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
   transition: var(--transition);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
 .card h3 {
   font-family: "Playfair Display", serif;
-  margin-bottom: 8px;
   font-size: 20px;
+  margin-bottom: 8px;
 }
 
-/* ---------- CONNECT ---------- */
+/* ------------ CONNECT ------------ */
+
 .connect {
-  background: var(--card-bg);
+  background: var(--card);
   padding: 35px 35px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .socials {
@@ -169,19 +186,23 @@ header {
 }
 
 .socials a {
-  text-decoration: none;
-  width: 42px;
-  height: 42px;
+  background: #222;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  border-radius: 50%;
-  background: #f1f1f1;
+  color: var(--accent);
+  font-size: 20px;
   transition: var(--transition);
+  text-decoration: none;
 }
 
 .socials a:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
 }
+
+/* ------------ FOOTER ------------ */
 
 footer {
   text-align: center;
@@ -190,7 +211,7 @@ footer {
   font-size: 14px;
 }
 
-/* ---------- ANIMATIONS ---------- */
+/* ------------ SCROLL ANIMATIONS ------------ */
 
 .fade {
   opacity: 0;
@@ -205,6 +226,7 @@ footer {
 
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -215,44 +237,32 @@ footer {
 
   <section class="hero fade">
     <h1>Beautiful Economics</h1>
-    <p>Where clarity meets elegance. Thoughtful economics made simple, visual and meaningful for the modern world.</p>
-    <a href="#insights" class="btn btn-dark">Explore Insights</a>
-    <a href="https://www.facebook.com/beautifulecos/" target="_blank" class="btn btn-outline">Visit Facebook</a>
+    <p>Premium insights, deep clarity, and a luxury approach to understanding the world of economics.</p>
+    <a href="#insights" class="btn btn-gold">Explore Insights</a>
+    <a href="https://www.facebook.com/beautifulecos/" class="btn btn-outline" target="_blank">Facebook</a>
   </section>
 
   <section class="section fade">
     <h2>About</h2>
-    <p>Beautiful Economics is a space that transforms complex economic concepts into clear, elegant ideas.  
-    A premium learning experience designed for curious thinkers, students, and anyone who loves simplicity with depth.</p>
+    <p>Beautiful Economics brings depth, simplicity, and elegance together. Designed for thinkers who value clarity, calmness, and premium learning experiences in economics.</p>
   </section>
 
   <section id="insights" class="section fade">
     <h2>Featured Insights</h2>
     <div class="insights">
-      <div class="card">
-        <h3>Inflation, Simplified</h3>
-        <p>A clean explanation of why prices rise, and what it really means.</p>
-      </div>
-      <div class="card">
-        <h3>Liquidity Trap</h3>
-        <p>How economies get stuck even when interest rates drop.</p>
-      </div>
-      <div class="card">
-        <h3>Endogenous Growth</h3>
-        <p>The deeper real source of long-term development.</p>
-      </div>
-      <div class="card">
-        <h3>Exchange Rate Power</h3>
-        <p>REER explained in a modern, intelligent way.</p>
-      </div>
+      <div class="card"><h3>Inflation (Luxury Explained)</h3><p>Understand the rise in prices through a clean, elevated perspective.</p></div>
+      <div class="card"><h3>Liquidity Trap</h3><p>Why economies get stuck even at zero rates — explained visually.</p></div>
+      <div class="card"><h3>Growth Models</h3><p>The deeper story behind development and long-term progress.</p></div>
+      <div class="card"><h3>Exchange Rates</h3><p>Elegant explanation of REER and currency dynamics.</p></div>
     </div>
   </section>
 
   <section class="connect fade">
     <div>
-      <h3 style="margin:0; font-family: 'Playfair Display', serif;">Stay Connected</h3>
-      <p style="margin:2px 0; color:var(--muted); font-size:15px;">Follow Beautiful Economics across platforms</p>
+      <h3 style="font-family:'Playfair Display',serif;margin:0;">Stay Connected</h3>
+      <p style="margin: 3px 0; color: var(--muted); font-size:15px;">Follow our premium content on social media</p>
     </div>
+
     <div class="socials">
       <a href="https://www.facebook.com/beautifulecos/" target="_blank">📘</a>
       <a href="#">📸</a>
@@ -261,16 +271,15 @@ footer {
   </section>
 
   <footer>
-    © <span id="year"></span> Beautiful Economics. All rights reserved.
+    © <span id="year"></span> Beautiful Economics · All Rights Reserved
   </footer>
 
 </div>
 
 <script>
-// year
 document.getElementById("year").innerText = new Date().getFullYear();
 
-// fade-in animation
+// scroll animations
 const faders = document.querySelectorAll(".fade");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("show"); });
