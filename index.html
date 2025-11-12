@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Beautiful Economics</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* -------- ROOT COLORS -------- */
-:root {
-  --bg: linear-gradient(135deg, #f8d8e3, #d7e3ff, #e5ffe0);
-  --card: rgba(255,255,255,0.55);
-  --glass: rgba(255,255,255,0.35);
-  --border: rgba(255,255,255,0.35);
-  --text: #1a1a1c;
-  --muted: #6f6f75;
-  --accent: #7f6bff;
+/* ROOT */
+:root{
+  --bg: #050505;
+  --text: #e6e6e6;
+  --muted: #9d9d9d;
+  --accent1: #7f5aff;
+  --accent2: #ff5fbd;
+  --accent3: #5fc1ff;
+  --card: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.14);
   --radius: 18px;
   --transition: .65s cubic-bezier(.2,.8,.3,1);
-  --shadow: 0 12px 40px rgba(0,0,0,0.18);
+  --shadow: 0 12px 40px rgba(0,0,0,0.6);
 }
 
-/* -------- BASE -------- */
+/* BASE */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:"Inter",sans-serif;
   color:var(--text);
   background:var(--bg);
-  background-attachment:fixed;
-  min-height:100vh;
+  overflow-x:hidden;
   padding:40px 20px;
   display:flex;
   justify-content:center;
-  line-height:1.6;
 }
 
-.container{max-width:1100px;width:100%;}
+/* BACKGROUND WAVES */
+.bg-waves{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at 20% 30%, var(--accent1), transparent 70%),
+             radial-gradient(circle at 80% 70%, var(--accent2), transparent 70%),
+             radial-gradient(circle at 50% 90%, var(--accent3), transparent 70%);
+  filter: blur(110px);
+  opacity:0.45;
+  animation: glowing 12s infinite alternate;
+  z-index:-1;
+}
+
+@keyframes glowing{
+  0%{transform:translateY(0px);}
+  100%{transform:translateY(-60px);}
+}
+
+.container{width:100%;max-width:1100px;}
 
 /* HEADER */
 header{
@@ -50,17 +67,16 @@ header{
 
 .brand{
   font-family:"Playfair Display",serif;
-  font-size:32px;
-  font-weight:600;
-  background:linear-gradient(90deg,#1a1a1c,#7f6bff);
+  font-size:34px;
+  background:linear-gradient(90deg,var(--accent2),var(--accent1),var(--accent3));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-/* CARD STYLE */
-.glass-card{
+/* CARD */
+.card-glass{
   background:var(--card);
-  backdrop-filter:blur(16px);
+  backdrop-filter:blur(12px);
   border-radius:var(--radius);
   padding:60px 40px;
   border:1px solid var(--border);
@@ -74,10 +90,10 @@ header{
 .hero h1{
   font-family:"Playfair Display",serif;
   font-size:56px;
-  background:linear-gradient(90deg,#1a1a1c,#7f6bff,#ff7fcf);
+  margin-bottom:12px;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  margin-bottom:10px;
 }
 
 .hero p{
@@ -90,34 +106,41 @@ header{
 
 .btn{
   padding:12px 28px;
-  text-decoration:none;
   border-radius:10px;
   display:inline-block;
+  text-decoration:none;
   font-weight:600;
-  transition:var(--transition);
   margin:6px;
+  transition:var(--transition);
 }
 
 .btn-primary{
-  background:var(--accent);
-  color:white;
+  background:var(--accent1);
+  color:black;
 }
 
-.btn-primary:hover{transform:translateY(-6px);}
+.btn-primary:hover{
+  transform:translateY(-6px);
+  background:var(--accent2);
+}
 
 .btn-outline{
-  border:1px solid rgba(0,0,0,0.3);
-  color:#1a1a1c;
+  border:1px solid rgba(255,255,255,0.3);
+  color:var(--text);
 }
 
-.btn-outline:hover{transform:translateY(-6px);}
+.btn-outline:hover{
+  transform:translateY(-6px);
+}
 
-/* SECTION TITLES */
+/* SECTIONS */
 .section h2{
   font-family:"Playfair Display",serif;
   font-size:34px;
-  color:#1a1a1c;
   margin-bottom:14px;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .section p{
@@ -135,23 +158,19 @@ header{
 
 .card{
   padding:24px;
+  background:rgba(255,255,255,0.07);
   border-radius:var(--radius);
-  backdrop-filter:blur(10px);
-  background:var(--glass);
+  backdrop-filter:blur(12px);
   border:1px solid var(--border);
-  box-shadow:var(--shadow);
   transition:var(--transition);
 }
 
-.card:hover{
-  transform:translateY(-10px);
-  background:rgba(255,255,255,0.75);
-}
+.card:hover{transform:translateY(-10px);background:rgba(255,255,255,0.15);}
 
 .card h3{
   font-family:"Playfair Display",serif;
   margin-bottom:8px;
-  color:#1a1a1c;
+  color:var(--text);
 }
 
 /* CONNECT */
@@ -167,15 +186,17 @@ header{
   display:grid;
   place-items:center;
   border-radius:50%;
-  background:#fff;
-  color:var(--accent);
+  background:#111;
   font-size:20px;
   text-decoration:none;
   transition:var(--transition);
-  border:1px solid rgba(0,0,0,0.2);
+  color:var(--accent1);
 }
 
-.socials a:hover{transform:translateY(-6px);}
+.socials a:hover{
+  transform:translateY(-6px);
+  background:#222;
+}
 
 /* FOOTER */
 footer{
@@ -185,7 +206,7 @@ footer{
   font-size:14px;
 }
 
-/* ANIMATIONS */
+/* ANIMATION */
 .fade{
   opacity:0;
   transform:translateY(24px);
@@ -201,39 +222,44 @@ footer{
 </head>
 
 <body>
+
+<div class="bg-waves"></div>
+
 <div class="container">
 
 <header>
   <div class="brand">Beautiful Economics</div>
 </header>
 
-<section class="glass-card hero fade">
+<section class="card-glass hero fade">
   <h1>Beautiful Economics</h1>
-  <p>A premium modern space where economics meets art, elegance, and global clarity.</p>
+  <p>The cinematic, modern and powerful way to understand economics in the 21st century.</p>
 
   <a href="#insights" class="btn btn-primary">Explore Insights</a>
   <a href="https://www.facebook.com/beautifulecos/" class="btn btn-outline" target="_blank">Facebook</a>
 </section>
 
-<section class="glass-card section fade">
+<section class="card-glass section fade">
   <h2>About</h2>
-  <p>An artistic, premium approach to economics — combining beauty, simplicity, and intelligence to create a visual learning experience.</p>
+  <p>A cinematic approach to economics — glowing, powerful, modern, and intelligently presented for a global audience.</p>
 </section>
 
-<section id="insights" class="glass-card section fade">
+<section id="insights" class="card-glass section fade">
   <h2>Featured Insights</h2>
+
   <div class="insights">
-    <div class="card"><h3>Inflation</h3><p>A soft and elegant breakdown of rising prices.</p></div>
-    <div class="card"><h3>Liquidity Trap</h3><p>When interest rates stop working — explained clearly.</p></div>
-    <div class="card"><h3>Growth Models</h3><p>The engines of development through an artistic lens.</p></div>
-    <div class="card"><h3>Exchange Rates</h3><p>A premium explanation of currency power.</p></div>
+    <div class="card"><h3>Inflation</h3><p>The real force behind rising prices.</p></div>
+    <div class="card"><h3>Liquidity Trap</h3><p>Why lowering interest rates sometimes fails.</p></div>
+    <div class="card"><h3>Growth Models</h3><p>The engines behind long-term prosperity.</p></div>
+    <div class="card"><h3>Exchange Rates</h3><p>A cinematic look at REER and currency strength.</p></div>
   </div>
+
 </section>
 
-<section class="glass-card connect fade">
+<section class="card-glass connect fade">
   <div>
     <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin:0;">Stay Connected</h3>
-    <p style="color:var(--muted);font-size:15px;margin:2px 0;">More elegant insights coming soon</p>
+    <p style="color:var(--muted);font-size:15px;margin:2px 0;">More premium content coming soon</p>
   </div>
 
   <div class="socials">
@@ -250,13 +276,12 @@ footer{
 </div>
 
 <script>
-// year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// fade reveal
+// scroll reveal
 const faders=document.querySelectorAll(".fade");
 const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
+  entries.forEach(e=>{ if(e.isIntersecting)e.target.classList.add("show");});
 });
 faders.forEach(el=>observer.observe(el));
 </script>
